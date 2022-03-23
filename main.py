@@ -347,4 +347,98 @@ btnE = Button(calc, text="e", width=6,
               bd=4, command=added_value.e
               ).grid(row=3, column=7, pady=1)
 
+# ROW 4 :
+btnlog10 = Button(calc, text="log10", width=6,
+                  height=2, bg='black', fg='white',
+                  font=('Helvetica', 20, 'bold'),
+                  bd=4, command=added_value.log10
+                  ).grid(row=4, column=4, pady=1)
+
+btncos = Button(calc, text="log1p", width=6,
+                height=2, bg='black', fg='white',
+                font=('Helvetica', 20, 'bold'),
+                bd=4, command=added_value.log1p
+                ).grid(row=4, column=5, pady=1)
+
+btnexpm1 = Button(calc, text="expm1", width=6,
+                  height=2, bg='black', fg='white',
+                  font=('Helvetica', 20, 'bold'),
+                  bd=4, command=added_value.expm1
+                  ).grid(row=4, column=6, pady=1)
+
+btngamma = Button(calc, text="gamma", width=6,
+                  height=2, bg='black', fg='white',
+                  font=('Helvetica', 20, 'bold'),
+                  bd=4, command=added_value.lgamma
+                  ).grid(row=4, column=7, pady=1)
+# ROW 5 :
+btnlog2 = Button(calc, text="log2", width=6,
+                 height=2, bg='black', fg='white',
+                 font=('Helvetica', 20, 'bold'),
+                 bd=4, command=added_value.log2
+                 ).grid(row=5, column=4, pady=1)
+
+btndeg = Button(calc, text="deg", width=6,
+                height=2, bg='black', fg='white',
+                font=('Helvetica', 20, 'bold'),
+                bd=4, command=added_value.degrees
+                ).grid(row=5, column=5, pady=1)
+
+btnacosh = Button(calc, text="acosh", width=6,
+                  height=2, bg='black', fg='white',
+                  font=('Helvetica', 20, 'bold'),
+                  bd=4, command=added_value.acosh
+                  ).grid(row=5, column=6, pady=1)
+
+btnasinh = Button(calc, text="asinh", width=6,
+                  height=2, bg='black', fg='white',
+                  font=('Helvetica', 20, 'bold'),
+                  bd=4, command=added_value.asinh
+                  ).grid(row=5, column=7, pady=1)
+
+lblDisplay = Label(calc, text="Scientific Calculator",
+                   font=('Helvetica', 30, 'bold'),
+                   bg='black', fg='white', justify=CENTER)
+
+lblDisplay.grid(row=0, column=4, columnspan=4)
+
+
+def iExit():
+    iExit = tkinter.messagebox.askyesno("Scientific Calculator",
+                                        "Do you want to exit ?")
+    if iExit > 0:
+        root.destroy()
+        return
+
+
+def Scientific():
+    root.resizable(width=False, height=False)
+    root.geometry("944x568+0+0")
+
+
+def Standard():
+    root.resizable(width=False, height=False)
+    root.geometry("480x568+0+0")
+
+
+menubar = Menu(calc)
+
+# ManuBar 1 :
+filemenu = Menu(menubar, tearoff=0)
+menubar.add_cascade(label='File', menu=filemenu)
+filemenu.add_command(label="Standard", command=Standard)
+filemenu.add_command(label="Scientific", command=Scientific)
+filemenu.add_separator()
+filemenu.add_command(label="Exit", command=iExit)
+
+# ManuBar 2 :
+editmenu = Menu(menubar, tearoff=0)
+menubar.add_cascade(label='Edit', menu=editmenu)
+editmenu.add_command(label="Cut")
+editmenu.add_command(label="Copy")
+editmenu.add_separator()
+editmenu.add_command(label="Paste")
+
+root.config(menu=menubar)
+
 root.mainloop()
